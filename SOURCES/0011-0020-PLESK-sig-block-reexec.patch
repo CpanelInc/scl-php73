@@ -1,4 +1,4 @@
-From 8e116be7e5a0b3a8bcfbe3afd3d1d1b71ce80b6b Mon Sep 17 00:00:00 2001
+From 586fea7bea557d02d7375d8dd69a9b9b299c389a Mon Sep 17 00:00:00 2001
 From: Julian Brown <julian.brown@cpanel.net>
 Date: Tue, 7 May 2019 12:17:00 -0500
 Subject: [PATCH 11/13] 0020-PLESK-sig-block-reexec
@@ -137,5 +137,5 @@ index 7202816..6ce7277 100644
  extern const char *fpm_signal_names[NSIG + 1];
  
 -- 
-2.21.0
+2.24.1
 
