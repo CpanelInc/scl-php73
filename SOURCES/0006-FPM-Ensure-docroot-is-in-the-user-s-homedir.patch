@@ -1,4 +1,4 @@
-From cb63cc1407d4810c7289b7c7e73179916c44a9b4 Mon Sep 17 00:00:00 2001
+From 7dfcaf1dbd02a8ea927cb88532bf7edb1cdb99a4 Mon Sep 17 00:00:00 2001
 From: Cory McIntire <cory@cpanel.net>
 Date: Fri, 2 Mar 2018 11:10:07 -0600
 Subject: [PATCH 06/13] FPM: Ensure docroot is in the user's homedir
@@ -8,7 +8,7 @@ Subject: [PATCH 06/13] FPM: Ensure docroot is in the user's homedir
  1 file changed, 12 insertions(+)
 
 diff --git a/sapi/fpm/fpm/fpm_main.c b/sapi/fpm/fpm/fpm_main.c
-index dfc0d8f..e5a97df 100644
+index 65890f9..02167a0 100644
 --- a/sapi/fpm/fpm/fpm_main.c
 +++ b/sapi/fpm/fpm/fpm_main.c
 @@ -644,6 +644,9 @@ static void php_cgi_ini_activate_user_config(char *path, int path_len, const cha
