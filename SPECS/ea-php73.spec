@@ -135,8 +135,8 @@ Summary:  PHP DSO
 %endif
 Vendor:   cPanel, Inc.
 Name:     %{?scl_prefix}php
-Version:  7.3.15
-%define release_prefix 2
+Version:  7.3.16
+%define release_prefix 1
 Release:  %{release_prefix}%{?dist}.cpanel
 # All files licensed under PHP version 3.01, except
 # Zend is licensed under Zend
@@ -1862,6 +1862,9 @@ fi
 
 
 %changelog
+* Thu Mar 19 2020 Cory McIntire <cory@cpanel.net> - 7.3.16-1
+- EA-8932: Update scl-php73 from v7.3.15 to v7.3.16
+
 * Mon Mar 01 2020 Julian Brown <julian.brown@cpanel.net> - 7.3.15-2
 - ZC-6247: Remove conflict between php-fpm and runtime.
 
