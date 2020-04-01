@@ -127,7 +127,7 @@
 %endif
 
 %define ea_openssl_ver 1.1.1d-1
-%define ea_libcurl_ver 7.59.0-2
+%define ea_libcurl_ver 7.68.0-2
 
 Summary:  PHP scripting language for creating dynamic web sites
 %if %{with_httpd}
@@ -136,7 +136,7 @@ Summary:  PHP DSO
 Vendor:   cPanel, Inc.
 Name:     %{?scl_prefix}php
 Version:  7.3.16
-%define release_prefix 1
+%define release_prefix 2
 Release:  %{release_prefix}%{?dist}.cpanel
 # All files licensed under PHP version 3.01, except
 # Zend is licensed under Zend
@@ -1862,6 +1862,9 @@ fi
 
 
 %changelog
+* Thu Mar 26 2020 Tim Mullin <tim@cpanel.net> - 7.3.16-2
+- EA-8928: Updated the required version for ea-libcurl
+
 * Thu Mar 19 2020 Cory McIntire <cory@cpanel.net> - 7.3.16-1
 - EA-8932: Update scl-php73 from v7.3.15 to v7.3.16
 
