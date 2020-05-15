@@ -1,4 +1,4 @@
-From e8b5371138f705bebf399d52ac12982dc6359cd5 Mon Sep 17 00:00:00 2001
+From db6435556cbc4650b7f28b2bd690cde401cb4942 Mon Sep 17 00:00:00 2001
 From: Julian Brown <julian.brown@cpanel.net>
 Date: Tue, 7 May 2019 12:17:00 -0500
 Subject: [PATCH 11/13] 0020-PLESK-sig-block-reexec
@@ -12,7 +12,7 @@ First of 3 patches for signal management.
  4 files changed, 70 insertions(+)
 
 diff --git a/sapi/fpm/fpm/fpm_main.c b/sapi/fpm/fpm/fpm_main.c
-index 02167a0..f01a0fc 100644
+index 70d7a37..ba2a324 100644
 --- a/sapi/fpm/fpm/fpm_main.c
 +++ b/sapi/fpm/fpm/fpm_main.c
 @@ -1596,6 +1596,15 @@ int main(int argc, char *argv[])
