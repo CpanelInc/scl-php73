@@ -136,7 +136,7 @@ Summary:  PHP DSO
 Vendor:   cPanel, Inc.
 Name:     %{?scl_prefix}php
 Version:  7.3.18
-%define release_prefix 1
+%define release_prefix 2
 Release:  %{release_prefix}%{?dist}.cpanel
 # All files licensed under PHP version 3.01, except
 # Zend is licensed under Zend
@@ -182,6 +182,7 @@ Patch108: 0010-Add-AUTOCONF-AUTOHEADER-variables-for-C6.patch
 Patch400: 0011-0020-PLESK-sig-block-reexec.patch
 Patch401: 0012-0021-PLESK-avoid-child-ignorance.patch
 Patch402: 0013-0022-PLESK-missed-kill.patch
+Patch403: 0014-Revert-new-.user.ini-search-behavior.patch
 
 BuildRequires: bzip2-devel, %{ns_name}-libcurl >= %{ea_libcurl_ver}, %{ns_name}-libcurl-devel >= %{ea_libcurl_ver}, %{db_devel}
 BuildRequires: pam-devel
@@ -1862,6 +1863,9 @@ fi
 
 
 %changelog
+* Mon May 18 2020 Tim Mullin <tim@cpanel.net> - 7.3.18-2
+- EA-9071: Revert new .user.ini search behavior
+
 * Thu May 14 2020 Cory McIntire <cory@cpanel.net> - 7.3.18-1
 - EA-9068: Update scl-php73 from v7.3.17 to v7.3.18
 
