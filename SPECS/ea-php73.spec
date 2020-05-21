@@ -989,6 +989,7 @@ inside them.
 %patch400 -p1 -b .sigblock
 %patch401 -p1 -b .avoidchildignorance
 %patch402 -p1 -b .missedkill
+%patch403 -p1 -b .userini
 
 # 7.3 does not need this for tidy even thought the instructions say to do it, weird ...
 # sed -i 's/buffio.h/tidybuffio.h/' ext/tidy/*.c
