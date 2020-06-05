@@ -127,7 +127,11 @@
 %endif
 
 %define ea_openssl_ver 1.1.1d-1
+%if 0%{?rhel} >= 8
+%define libcurl_ver 7.61.0
+%else
 %define ea_libcurl_ver 7.68.0-2
+%endif
 
 Summary:  PHP scripting language for creating dynamic web sites
 %if %{with_httpd}
@@ -184,7 +188,16 @@ Patch401: 0012-0021-PLESK-avoid-child-ignorance.patch
 Patch402: 0013-0022-PLESK-missed-kill.patch
 Patch403: 0014-Revert-new-.user.ini-search-behavior.patch
 
-BuildRequires: bzip2-devel, %{ns_name}-libcurl >= %{ea_libcurl_ver}, %{ns_name}-libcurl-devel >= %{ea_libcurl_ver}, %{db_devel}
+BuildRequires: bzip2-devel, %{db_devel}
+
+%if 0%{?rhel} >= 8
+BuildRequires: libcurl >= %{libcurl_ver}, libcurl-devel >= %{libcurl_ver}
+BuildRequires: brotli brotli-devel
+%else
+BuildRequires: %{ns_name}-libcurl >= %{ea_libcurl_ver},
+%{ns_name}-libcurl-devel >= %{ea_libcurl_ver}
+%endif
+
 BuildRequires: pam-devel
 Requires: ea-openssl11 >= %{ea_openssl_ver}
 BuildRequires: libstdc++-devel, ea-openssl11 >= %{ea_openssl_ver}, ea-openssl11-devel >= %{ea_openssl_ver}, scl-utils-build
@@ -212,7 +225,12 @@ Provides:      Provides: bundled(pcre2) = 10.32
 BuildRequires: bzip2, perl, libtool >= 1.4.3, gcc-c++
 BuildRequires: libtool-ltdl-devel
 %if %{with_libzip}
+%if 0%{?rhel} < 8
 BuildRequires: libzip-devel >= 0.11
+%else
+BuildRequires: ea-libzip ea-libzip-devel
+Requires: ea-libzip
+%endif
 %endif
 %if %{with_dtrace}
 BuildRequires: python
@@ -444,7 +462,11 @@ Group: Development/Languages
 License: PHP
 Requires: %{?scl_prefix}php-common%{?_isa} = %{version}-%{release}
 Requires: %{?scl_prefix}php-cli%{?_isa} = %{version}-%{release}
+%if 0%{?rhel} >= 8
+Requires: libcurl >= %{libcurl_ver}
+%else
 Requires: %{ns_name}-libcurl >= %{ea_libcurl_ver}
+%endif
 BuildRequires: libssh2 libssh2-devel libidn libidn-devel ea-libnghttp2-devel
 Provides: %{?scl_prefix}php-curl = %{version}-%{release}, %{?scl_prefix}php-curl%{?_isa} = %{version}-%{release}
 
@@ -547,10 +569,16 @@ License: PHP
 Provides: %{?scl_prefix}php-imap%{?_isa} = %{version}-%{release}
 Requires: %{?scl_prefix}php-common%{?_isa} = %{version}-%{release}
 Requires: %{?scl_prefix}php-cli%{?_isa} = %{version}-%{release}
-Requires: %{?scl_prefix}libc-client%{?_isa}
 Requires: ea-openssl11 >= %{ea_openssl_ver}
 BuildRequires: krb5-devel%{?_isa}, ea-openssl11 >= %{ea_openssl_ver}, ea-openssl11-devel >= %{ea_openssl_ver}
+%if 0%{?rhel} >= 8
+Requires: %{?scl_prefix}libc-client
+BuildRequires: %{?scl_prefix}libc-client-devel
+%else
+Requires: %{?scl_prefix}libc-client%{?_isa}
 BuildRequires: %{?scl_prefix}libc-client-devel%{?_isa}
+%endif
+
 Conflicts: %{?scl_prefix}php-recode = %{version}-%{release}
 
 %description imap
@@ -956,8 +984,12 @@ Requires: %{?scl_prefix}php-common%{?_isa} = %{version}-%{release}
 Requires: %{?scl_prefix}php-cli%{?_isa} = %{version}-%{release}
 Provides: %{?scl_prefix}php-zip = %{version}-%{release}, %{?scl_prefix}php-zip%{?_isa} = %{version}-%{release}
 %if %{with_libzip}
+%if 0%{?rhel} >= 8
+%else
 # 0.11.1 required, but 1.0.1 is bundled
 BuildRequires: pkgconfig(libzip) >= 1.0.1
+BuildRequires: pkgconfig(ea-libzip) >= 1.0.1
+%endif
 %endif
 
 %description zip
@@ -1157,6 +1189,10 @@ EXTENSION_DIR=%{_libdir}/php/modules; export EXTENSION_DIR
 # separately.
 PEAR_INSTALLDIR=%{_datadir}/pear; export PEAR_INSTALLDIR
 
+%if 0%{?rhel} >= 8
+export XLDFLAGS=$LDFLAGS
+%endif
+
 # Shell function to configure and build a PHP tree.
 build() {
 # Old/recent bison version seems to produce a broken parser;
@@ -1171,6 +1207,10 @@ mkdir Zend && cp ../Zend/zend_{language,ini}_{parser,scanner}.[ch] Zend
 # pcntl, readline: only used by CLI sapi
 # openssl: for PHAR_SIG_OPENSSL
 # zlib: used by image
+
+%if 0%{?rhel} >= 8
+export LDFLAGS="$XLDFLAGS -Wl,-rpath-link,/lib64 -Wl,-rpath,/lib64"
+%endif
 
 ln -sf ../configure
 %configure \
@@ -1265,7 +1305,11 @@ build --libdir=%{_libdir}/php \
       --enable-soap=shared \
       --with-xsl=shared,%{_root_prefix} \
       --enable-xmlreader=shared --enable-xmlwriter=shared \
+%if 0%{?rhel} >= 8
+      --with-curl=shared \
+%else
       --with-curl=shared,%{libcurl_prefix} \
+%endif
       --enable-pdo=shared \
       --with-pdo-odbc=shared,unixODBC,%{_root_prefix} \
       --with-pdo-mysql=shared,mysqlnd \
@@ -1282,7 +1326,11 @@ build --libdir=%{_libdir}/php \
       --enable-zip=shared \
 %endif
 %if %{with_libzip}
+%if 0%{?rhel} < 8
       --with-libzip \
+%else
+      --with-libzip=/opt/cpanel/ea-libzip \
+%endif
 %endif
       --without-readline \
 %if %{with_libedit}
