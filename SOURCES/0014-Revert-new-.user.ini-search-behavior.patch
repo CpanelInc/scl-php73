@@ -14,11 +14,11 @@ do not rely on the old behavior.
  2 files changed, 6 insertions(+), 6 deletions(-)
 
 diff --git a/sapi/cgi/cgi_main.c b/sapi/cgi/cgi_main.c
-index 8c8e1463..d6449ba2 100644
+index 37f8eac6..59590974 100644
 --- a/sapi/cgi/cgi_main.c
 +++ b/sapi/cgi/cgi_main.c
 @@ -789,7 +789,7 @@ static void sapi_cgi_log_message(char *message, int syslog_type_int)
-
+ 
  /* {{{ php_cgi_ini_activate_user_config
   */
 -static void php_cgi_ini_activate_user_config(char *path, size_t path_len, const char *doc_root, size_t doc_root_len)
@@ -32,26 +32,24 @@ index 8c8e1463..d6449ba2 100644
  #endif
 -			char *ptr = s2 + doc_root_len;
 +			char *ptr = s2 + start;  /* start is the point where doc_root ends! */
- 			while ((ptr = strchr(ptr, DEFAULT_SLASH)) != NULL) {
- 				*ptr = 0;
- 				php_parse_user_ini_file(path, PG(user_ini_filename), entry->user_config);
-@@ -938,7 +938,7 @@ static int sapi_cgi_activate(void)
+ #ifdef PHP_WIN32
+ 			while ((ptr = strpbrk(ptr, "\\/")) != NULL) {
+ #else
+@@ -942,7 +942,7 @@ static int sapi_cgi_activate(void)
  				doc_root = estrndup(doc_root, doc_root_len);
  				zend_str_tolower(doc_root, doc_root_len);
  #endif
 -				php_cgi_ini_activate_user_config(path, path_len, doc_root, doc_root_len);
 +				php_cgi_ini_activate_user_config(path, path_len, doc_root, doc_root_len, (doc_root_len > 0 && (doc_root_len - 1)));
-
+ 
  #ifdef PHP_WIN32
  				efree(doc_root);
-<<<<<<< HEAD
-=======
 diff --git a/sapi/fpm/fpm/fpm_main.c b/sapi/fpm/fpm/fpm_main.c
 index ba2a3240..f01a0fcb 100644
 --- a/sapi/fpm/fpm/fpm_main.c
 +++ b/sapi/fpm/fpm/fpm_main.c
 @@ -627,7 +627,7 @@ static void sapi_cgi_log_message(char *message, int syslog_type_int)
-
+ 
  /* {{{ php_cgi_ini_activate_user_config
   */
 -static void php_cgi_ini_activate_user_config(char *path, int path_len, const char *doc_root, int doc_root_len)
@@ -71,10 +69,9 @@ index ba2a3240..f01a0fcb 100644
 @@ -763,7 +763,7 @@ static int sapi_cgi_activate(void) /* {{{ */
  					--doc_root_len;
  				}
-
+ 
 -				php_cgi_ini_activate_user_config(path, path_len, doc_root, doc_root_len);
 +				php_cgi_ini_activate_user_config(path, path_len, doc_root, doc_root_len, doc_root_len - 1);
  			}
  		}
-
->>>>>>> f81a0f360018f925c10e90b8dae73c107102d53d
+ 
