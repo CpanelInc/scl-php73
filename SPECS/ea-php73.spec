@@ -135,8 +135,8 @@ Summary:  PHP DSO
 %endif
 Vendor:   cPanel, Inc.
 Name:     %{?scl_prefix}php
-Version:  7.3.18
-%define release_prefix 2
+Version:  7.3.19
+%define release_prefix 1
 Release:  %{release_prefix}%{?dist}.cpanel
 # All files licensed under PHP version 3.01, except
 # Zend is licensed under Zend
@@ -260,7 +260,7 @@ Requires: autotools-latest-autoconf
 
 %description
 %if %{with_httpd}
-Package that installs Apache`s mod_php DSO module for PHP 7.1
+Package that installs Apache`s mod_php DSO module for PHP 7.3
 %else
 PHP is an HTML-embedded scripting language. PHP attempts to make it
 easy for developers to write dynamically generated web pages. PHP also
@@ -1864,6 +1864,12 @@ fi
 
 
 %changelog
+* Fri Jun 12 2020 Cory McIntire <cory@cpanel.net> - 7.3.19-1
+- EA-9111: Update scl-php73 from v7.3.18 to v7.3.19
+
+* Wed Jun 10 2020 Tim Mullin <tim@cpanel.net> - 7.3.18-3
+- EA-9087: Fix PHP version in DSO description
+
 * Mon May 18 2020 Tim Mullin <tim@cpanel.net> - 7.3.18-2
 - EA-9071: Revert new .user.ini search behavior
 
