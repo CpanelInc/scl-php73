@@ -194,8 +194,7 @@ BuildRequires: bzip2-devel, %{db_devel}
 BuildRequires: libcurl >= %{libcurl_ver}, libcurl-devel >= %{libcurl_ver}
 BuildRequires: brotli brotli-devel
 %else
-BuildRequires: %{ns_name}-libcurl >= %{ea_libcurl_ver},
-%{ns_name}-libcurl-devel >= %{ea_libcurl_ver}
+BuildRequires: %{ns_name}-libcurl >= %{ea_libcurl_ver}, %{ns_name}-libcurl-devel >= %{ea_libcurl_ver}
 %endif
 
 BuildRequires: pam-devel
