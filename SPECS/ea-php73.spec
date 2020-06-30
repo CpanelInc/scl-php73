@@ -1911,7 +1911,7 @@ fi
 
 
 %changelog
-* Fri Jun 05 2020 Julian Brown <julian.brown@cpanel.net> - 7.3.19-2
+* Tue Jun 30 2020 Julian Brown <julian.brown@cpanel.net> - 7.3.19-2
 - ZC-6964: Build on C8
 
 * Fri Jun 12 2020 Cory McIntire <cory@cpanel.net> - 7.3.19-1
