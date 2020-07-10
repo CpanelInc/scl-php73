@@ -1,4 +1,4 @@
-From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From 478e0c2fd138a76dd0eb1c27b6778fa98a1e995b Mon Sep 17 00:00:00 2001
 From: Kurt Newman <kurt.newman@cpanel.net>
 Date: Fri, 11 Dec 2015 12:18:01 -0600
 Subject: [PATCH 04/14] Removed ZTS support
@@ -15,7 +15,7 @@ following reasons:
  1 file changed, 11 deletions(-)
 
 diff --git a/sapi/apache2handler/config.m4 b/sapi/apache2handler/config.m4
-index 44dee3fa..52321e9d 100644
+index 44dee3f..52321e9 100644
 --- a/sapi/apache2handler/config.m4
 +++ b/sapi/apache2handler/config.m4
 @@ -107,17 +107,6 @@ if test "$PHP_APXS2" != "no"; then
@@ -36,3 +36,6 @@ index 44dee3fa..52321e9d 100644
    AC_MSG_RESULT(yes)
    PHP_SUBST(APXS)
  else
+-- 
+2.25.1
+
