@@ -1,4 +1,4 @@
-From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From 114fc0ea2afd5f3f49fe947799d4219e1b33d9c7 Mon Sep 17 00:00:00 2001
 From: Cory McIntire <cory@cpanel.net>
 Date: Fri, 2 Mar 2018 11:01:25 -0600
 Subject: [PATCH 01/14] Modify recode to allow IMAP and recode to be
@@ -9,7 +9,7 @@ Subject: [PATCH 01/14] Modify recode to allow IMAP and recode to be
  1 file changed, 7 deletions(-)
 
 diff --git a/ext/recode/config9.m4 b/ext/recode/config9.m4
-index 5f856555..7c8c5150 100644
+index 5f85655..7c8c515 100644
 --- a/ext/recode/config9.m4
 +++ b/ext/recode/config9.m4
 @@ -2,13 +2,6 @@ dnl config.m4 for extension recode
@@ -26,3 +26,6 @@ index 5f856555..7c8c5150 100644
  
    if test -n "$recode_conflict"; then
      AC_MSG_ERROR([recode extension can not be configured together with:$recode_conflict])
+-- 
+2.25.1
+

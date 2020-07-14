@@ -1,4 +1,4 @@
-From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From d85c339f157857b8d40dad899129ecd2d54f9d13 Mon Sep 17 00:00:00 2001
 From: Daniel Muey <dan@cpanel.net>
 Date: Thu, 7 Feb 2019 12:22:33 -0600
 Subject: [PATCH 09/14] Add support for use of the system timezone database,
@@ -34,7 +34,7 @@ r1: initial revision
  2 files changed, 545 insertions(+), 3 deletions(-)
 
 diff --git a/ext/date/config0.m4 b/ext/date/config0.m4
-index 6c9d6141..5321cc99 100644
+index 6c9d614..5321cc9 100644
 --- a/ext/date/config0.m4
 +++ b/ext/date/config0.m4
 @@ -9,6 +9,19 @@ io.h
@@ -58,7 +58,7 @@ index 6c9d6141..5321cc99 100644
  timelib_sources="lib/astro.c lib/dow.c lib/parse_date.c lib/parse_tz.c
                   lib/timelib.c lib/tm2unixtime.c lib/unixtime2tm.c lib/parse_iso_intervals.c lib/interval.c"
 diff --git a/ext/date/lib/parse_tz.c b/ext/date/lib/parse_tz.c
-index 020da313..9b39c6e2 100644
+index 020da31..9b39c6e 100644
 --- a/ext/date/lib/parse_tz.c
 +++ b/ext/date/lib/parse_tz.c
 @@ -26,8 +26,21 @@
@@ -660,3 +660,6 @@ index 020da313..9b39c6e2 100644
  	} else {
  		*error_code = TIMELIB_ERROR_NO_SUCH_TIMEZONE;
  		tmp = NULL;
+-- 
+2.25.1
+
