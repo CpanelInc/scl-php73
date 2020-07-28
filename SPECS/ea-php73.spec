@@ -140,7 +140,7 @@ Summary:  PHP DSO
 Vendor:   cPanel, Inc.
 Name:     %{?scl_prefix}php
 Version:  7.3.20
-%define release_prefix 1
+%define release_prefix 2
 Release:  %{release_prefix}%{?dist}.cpanel
 # All files licensed under PHP version 3.01, except
 # Zend is licensed under Zend
@@ -150,7 +150,7 @@ Group:    Development/Languages
 URL:      http://www.php.net/
 
 Source0: http://www.php.net/distributions/php-%{version}.tar.bz2
-Source1: https://www.litespeedtech.com/packages/lsapi/php-litespeed-7.6.tgz
+Source1: https://www.litespeedtech.com/packages/lsapi/php-litespeed-7.7.tgz
 Source2: php.ini
 Source3: macros.php
 Source4: php-fpm.conf
@@ -1911,6 +1911,9 @@ fi
 
 
 %changelog
+* Fri Jul 24 2020 Tim Mullin <tim@cpanel.net> - 7.3.20-2
+- EA-9189: Update litespeed from upstream to 7.7
+
 * Thu Jul 09 2020 Cory McIntire <cory@cpanel.net> - 7.3.20-1
 - EA-9153: Update scl-php73 from v7.3.19 to v7.3.20
 
