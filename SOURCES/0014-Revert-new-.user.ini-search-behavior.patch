@@ -1,4 +1,4 @@
-From 63107c336f4b4fc5aefe609930201489f5aa1300 Mon Sep 17 00:00:00 2001
+From 850f894824b5fd9ae5a23b7ee1b8ca5a864aa975 Mon Sep 17 00:00:00 2001
 From: Tim Mullin <tim@cpanel.net>
 Date: Mon, 18 May 2020 15:36:05 -0500
 Subject: [PATCH 14/14] Revert new .user.ini search behavior
