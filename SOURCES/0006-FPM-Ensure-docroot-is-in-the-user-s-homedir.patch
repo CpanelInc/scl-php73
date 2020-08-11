@@ -1,4 +1,4 @@
-From 000ae1542d2e712a42858165ec644e3af20ce00d Mon Sep 17 00:00:00 2001
+From 1024684386f6248e64ac2df91ac0a66efd4f782b Mon Sep 17 00:00:00 2001
 From: Cory McIntire <cory@cpanel.net>
 Date: Fri, 2 Mar 2018 11:10:07 -0600
 Subject: [PATCH 06/14] FPM: Ensure docroot is in the user's homedir
