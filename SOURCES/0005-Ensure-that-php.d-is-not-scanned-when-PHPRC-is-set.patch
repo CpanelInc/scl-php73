@@ -1,4 +1,4 @@
-From 92abd530df76d456f5199bbf257f20c2783e0740 Mon Sep 17 00:00:00 2001
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Jacob Perkins <jacob.perkins@cpanel.net>
 Date: Mon, 13 Jun 2016 22:35:54 -0500
 Subject: [PATCH 05/14] Ensure that php.d is not scanned when PHPRC is set
@@ -36,6 +36,3 @@ index d5d920a..f5b0514 100644
  		struct dirent **namelist;
  		int ndir, i;
  		zend_stat_t sb;
--- 
-2.25.1
-
