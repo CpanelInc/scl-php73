@@ -1,4 +1,4 @@
-From d92f9c2048d87555aee3d9c49ff00a6ac7a76feb Mon Sep 17 00:00:00 2001
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Matt Dees <matt@cpanel.net>
 Date: Fri, 19 Aug 2016 10:10:41 -0500
 Subject: [PATCH 07/14] Chroot FPM users with noshell and jailshell
@@ -111,6 +111,3 @@ index 6490a7b..8b20424 100644
  	if (is_root && wp->config->chroot && *wp->config->chroot) {
  		if (0 > chroot(wp->config->chroot)) {
  			zlog(ZLOG_SYSERROR, "[pool %s] failed to chroot(%s)",  wp->config->name, wp->config->chroot);
--- 
-2.25.1
-
