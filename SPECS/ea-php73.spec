@@ -140,7 +140,7 @@ Summary:  PHP DSO
 Vendor:   cPanel, Inc.
 Name:     %{?scl_prefix}php
 Version:  7.3.23
-%define release_prefix 2
+%define release_prefix 3
 Release:  %{release_prefix}%{?dist}.cpanel
 # All files licensed under PHP version 3.01, except
 # Zend is licensed under Zend
@@ -1913,6 +1913,9 @@ fi
 
 
 %changelog
+* Thu Oct 29 2020 Daniel Muey <dan@cpanel.net> - 7.3.23-3
+- ZC-7893: Update DSO config to factor in PHP 8
+
 * Wed Oct 28 2020 Tim Mullin <tim@cpanel.net> - 7.3.23-2
 - EA-9390: Fix build with latest ea-brotli (v1.0.9)
 
