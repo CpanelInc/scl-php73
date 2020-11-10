@@ -1916,6 +1916,9 @@ fi
 * Tue Nov 03 2020 Cory McIntire <cory@cpanel.net> - 7.3.24-1
 - EA-9403: Update scl-php73 from v7.3.23 to v7.3.24
 
+* Thu Oct 29 2020 Daniel Muey <dan@cpanel.net> - 7.3.23-3
+- ZC-7893: Update DSO config to factor in PHP 8
+
 * Wed Oct 28 2020 Tim Mullin <tim@cpanel.net> - 7.3.23-2
 - EA-9390: Fix build with latest ea-brotli (v1.0.9)
 
