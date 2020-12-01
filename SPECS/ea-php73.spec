@@ -1272,7 +1272,7 @@ ln -sf ../configure
     --with-jpeg-dir=%{_root_prefix} \
 %if 0%{?rhel} >= 8
     --with-openssl \
-%else    
+%else
     --with-openssl=/opt/cpanel/ea-openssl11 --with-openssl-dir=/opt/cpanel/ea-openssl11 \
 %endif
 %if %{with_pcre}
