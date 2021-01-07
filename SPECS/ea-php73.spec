@@ -139,8 +139,8 @@ Summary:  PHP DSO
 %endif
 Vendor:   cPanel, Inc.
 Name:     %{?scl_prefix}php
-Version:  7.3.25
-%define release_prefix 2
+Version:  7.3.26
+%define release_prefix 1
 Release:  %{release_prefix}%{?dist}.cpanel
 # All files licensed under PHP version 3.01, except
 # Zend is licensed under Zend
@@ -1955,6 +1955,9 @@ fi
 
 
 %changelog
+* Thu Jan 07 2021 Cory McIntire <cory@cpanel.net> - 7.3.26-1
+- EA-9518: Update scl-php73 from v7.3.25 to v7.3.26
+
 * Tue Dec 01 2020 Julian Brown <julian.brown@cpanel.net> - 7.3.25-2
 - ZC-8005: Replace ea-openssl11 with system openssl on C8
 
