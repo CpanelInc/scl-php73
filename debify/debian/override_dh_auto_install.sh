@@ -221,8 +221,3 @@ cp ./ucgendat_LICENSE ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc
 cp ./libbcmath_COPYING ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/licenses/ea-php73-php-bcmath-${pkg_php_version}
 cp ./ext/pcre/pcre2lib/*.h ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/include/php/ext/pcre/pcre2lib
 
-echo "FILELIST"
-find . -type f -print
-echo "FILELIST END"
-
-
