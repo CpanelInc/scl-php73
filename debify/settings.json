@@ -26,6 +26,9 @@
         "ea-php73-php.gif",
         "pdo_odbc.so"
     ],
+    "remove_from_patches": [
+        "0010-Add-AUTOCONF-AUTOHEADER-variables-for-C6.patch"
+    ],
     "fix_dh_usrlocal": 1,
     "add_to_requires": {
         "ea-php73-php-cli": [ "libfbclient2" ],
