@@ -46,7 +46,7 @@ sed -e "s:/var/lib:$_localstatedir/lib:" \
     -e "s:/var/log:$_localstatedir/log:" \
     -i $DEB_INSTALL_ROOT$_sysconfdir/php-fpm.d/www.conf
 mv $DEB_INSTALL_ROOT$_sysconfdir/php-fpm.d/www.conf $DEB_INSTALL_ROOT$_sysconfdir/php-fpm.d/www.conf.example
-mv ${DEB_INSTALL_ROOT}$_sysconfdir/php-fpm.conf.default .
+mv ${DEB_INSTALL_ROOT}opt/cpanel/ea-php73/root/etc/php-fpm.conf.default .
 # tmpfiles.d
 # install -m 755 -d $DEB_INSTALL_ROOT$_prefix/lib/tmpfiles.d
 # install -m 644 php-fpm.tmpfiles $DEB_INSTALL_ROOT$_prefix/lib/tmpfiles.d/php-fpm.conf
