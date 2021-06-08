@@ -38,6 +38,7 @@
         "ea-php73-php-pgsql": [ "libpq5" ],
         "ea-php73-php-dba": [ "libtokyocabinet9" ],
         "ea-php73-php-pspell": [ "libaspell15" ],
-        "ea-php73-php-enchant": [ "libenchant1c2a" ]
+        "ea-php73-php-enchant": [ "libenchant1c2a" ],
+        "ea-php73-php-imap": [ "libc-client2007e" ]
     }
 }
