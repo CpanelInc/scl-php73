@@ -1,0 +1,44 @@
+{
+    "vars" : {
+       "pkg_php_version": "%{version}" 
+    },
+    "remove_from_provides": [
+        "Provides:"
+    ],
+    "remove_from_requires": [
+        "pkgconfig(ea-libzip)",
+        "pkgconfig(libzip)",
+        "scl-utils-build",
+        "autotools-latest-autoconf",
+        "ea-php73-libc-client-devel",
+        "ea-php73-libc-client"
+    ],
+    "add_to_build_requires": [
+        "pkg-config",
+        "libc-client2007e-dev",
+        "ea-apache24-mod-mpm-prefork",
+        "libonig-dev",
+        "libsystemd0",
+        "libpspell-dev"
+    ],
+    "remove_from_install": [
+        "libphp7.so",
+        "ea-php73-php.gif",
+        "pdo_odbc.so"
+    ],
+    "remove_from_patches": [
+        "0010-Add-AUTOCONF-AUTOHEADER-variables-for-C6.patch"
+    ],
+    "fix_dh_usrlocal": 1,
+    "add_to_requires": {
+        "ea-php73-php-cli": [ "libfbclient2" ],
+        "ea-php73-php-dbg": [ "libfbclient2" ],
+        "ea-php73-php-fpm": [ "libfbclient2" ],
+        "ea-php73-php-litespeed": [ "libfbclient2" ],
+        "ea-php73-php-pgsql": [ "libpq5" ],
+        "ea-php73-php-dba": [ "libtokyocabinet9" ],
+        "ea-php73-php-pspell": [ "libaspell15" ],
+        "ea-php73-php-enchant": [ "libenchant1c2a" ],
+        "ea-php73-php-imap": [ "libc-client2007e" ]
+    }
+}
