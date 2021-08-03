@@ -4,8 +4,13 @@ source debian/vars.sh
 
 set -x
 
+export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:`pwd`/config"
+echo "PKG_CONFIG_PATH :$PKG_CONFIG_PATH:"
+
 rm -rf $DEB_INSTALL_ROOT
 mkdir -p $DEB_INSTALL_ROOT/opt/cpanel/ea-php73
+mkdir -p ${_httpd_moddir}
+mkdir -p $DEB_INSTALL_ROOT${_root_httpd_moddir}
 
 install -d $DEB_INSTALL_ROOT/usr/local/bin
 ln -sf /opt/cpanel/ea-php73/root/usr/bin/php $DEB_INSTALL_ROOT/usr/local/bin/ea-php73
@@ -19,6 +24,17 @@ popd
 # Install the default configuration file and icons
 install -m 755 -d $DEB_INSTALL_ROOT$_sysconfdir/
 install -m 644 $SOURCE2 $DEB_INSTALL_ROOT$_sysconfdir/php.ini
+
+# install the DSO
+install -m 755 -d $DEB_INSTALL_ROOT${_httpd_moddir}
+install -m 755 build/libs/libphp7.so $DEB_INSTALL_ROOT${_httpd_moddir}
+
+# Apache config fragment
+install -m 755 -d $DEB_INSTALL_ROOT${_httpd_contentdir}/icons
+install -m 644 ext/gd/tests/php.gif $DEB_INSTALL_ROOT${_httpd_contentdir}/icons/${name}.gif
+install -m 755 -d $DEB_INSTALL_ROOT${_root_httpd_moddir}
+ln -s ${_httpd_moddir}/libphp7.so $DEB_INSTALL_ROOT${_root_httpd_moddir}/libphp7.so
+
 # For third-party packaging:
 install -m 755 -d $DEB_INSTALL_ROOT$_datadir/php
 install -m 755 -d $DEB_INSTALL_ROOT$_sysconfdir/php.d
@@ -178,6 +194,9 @@ mkdir -p ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/etc/sysconfig/php-fpm
 mkdir -p ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/php
 mkdir -p ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/var/lib
 
+cp build/libs/libphp7.so ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/lib64/apache2/modules
+cp build/libs/libphp7.so ${DEB_INSTALL_ROOT}/usr/lib64/apache2/modules
+
 cp -R ${DEB_INSTALL_ROOT}/etc/php-fpm.d ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/etc/php-fpm.d
 cp -f ./sapi/phpdbg/CREDITS ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-dbg-${pkg_php_version}
 cp -f ./sapi/phpdbg/README.md ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-dbg-${pkg_php_version}
@@ -220,4 +239,10 @@ cp ./oniguruma_COPYING ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/do
 cp ./ucgendat_LICENSE ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-mbstring-${pkg_php_version}
 cp ./libbcmath_COPYING ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/licenses/ea-php73-php-bcmath-${pkg_php_version}
 cp ./ext/pcre/pcre2lib/*.h ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/include/php/ext/pcre/pcre2lib
+
+mkdir -p $DEB_INSTALL_ROOT/usr/share/apache2/icons
+install -m 644 ext/gd/tests/php.gif $DEB_INSTALL_ROOT/usr/share/apache2/icons/${name}.gif
+
+echo "FILELIST"
+find . -type f -print | sort | xargs ls -ld
 
