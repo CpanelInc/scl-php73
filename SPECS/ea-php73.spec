@@ -139,7 +139,7 @@ Summary:  PHP DSO
 %endif
 Vendor:   cPanel, Inc.
 Name:     %{?scl_prefix}php
-Version:  7.3.29
+Version:  7.3.30
 %define release_prefix 1
 Release:  %{release_prefix}%{?dist}.cpanel
 # All files licensed under PHP version 3.01, except
@@ -1956,6 +1956,9 @@ fi
 
 
 %changelog
+* Thu Aug 26 2021 Cory McIntire <cory@cpanel.net> - 7.3.30-1
+- EA-10074: Update scl-php73 from v7.3.29 to v7.3.30
+
 * Thu Jul 01 2021 Cory McIntire <cory@cpanel.net> - 7.3.29-1
 - EA-9923: Update scl-php73 from v7.3.28 to v7.3.29
 
