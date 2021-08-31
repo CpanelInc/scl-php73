@@ -37,9 +37,6 @@
         "libsystemd0",
         "libpspell-dev"
     ],
-    "remove_from_install": [
-        "pdo_odbc.so"
-    ],
     "remove_from_patches": [
         "0010-Add-AUTOCONF-AUTOHEADER-variables-for-C6.patch"
     ],
@@ -53,6 +50,9 @@
         "ea-php73-php-dba": [ "libtokyocabinet9" ],
         "ea-php73-php-pspell": [ "libaspell15" ],
         "ea-php73-php-enchant": [ "libenchant1c2a" ],
+        "ea-php73-php-odbc": [ "libodbc1" ],
+        "ea-php73-php-recode": [ "librecode0" ],
+        "ea-php73-php-pdo": [ "libpq5" ],
         "ea-php73-php-imap": [ "libc-client2007e" ]
     }
 }

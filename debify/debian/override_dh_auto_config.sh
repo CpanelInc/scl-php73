@@ -198,6 +198,7 @@ ln -s ../configure
     --libdir=/opt/cpanel/ea-php73/root/usr/lib64/php \
     --with-mysqli=shared \
     --enable-pdo=shared \
+    --with-pdo-odbc=shared,unixodbc,/usr \
     --with-pdo-mysql=shared,mysqlnd \
     --with-pdo-pgsql=shared \
     --with-pdo-sqlite=shared \
