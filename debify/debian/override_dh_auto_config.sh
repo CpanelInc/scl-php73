@@ -111,12 +111,43 @@ cp /usr/share/pkgconfig/ea-apr16-util-1.pc config/apr-util-1.pc
 cp /usr/share/pkgconfig/ea-apr16-1.pc config
 cp /usr/share/pkgconfig/ea-apr16-util-1.pc config
 
-export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:`pwd`/config"
+export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:`pwd`/config:/usr/lib/x86_64-linux-gnu/pkgconfig"
 echo "PKG_CONFIG_PATH :$PKG_CONFIG_PATH:"
+
+# BEGIN Faking freetype-config
+
+# Configuring php73 for freetype2 is a pain
+# the configure script will only consider a freetype-config
+# script to get the info from, this is present on CentOS
+# but not on Ubuntu therefore I am faking it.
+
+mkdir -p fake_freetype2/bin
+cat <<EOF > fake_freetype2/bin/freetype-config
+#!/bin/bash
+
+if [ "\$1" = "--cflags" ]
+then
+    echo "-I/usr/include/freetype2"
+elif [ "\$1" = "--libs" ]
+then
+    echo "-L/usr/lib/x86_64-linux-gnu -lfreetype"
+else
+    echo "usage: fake-freetype-config --cflags | --libs"
+    exit 1
+fi
+
+exit 0
+EOF
+chmod a+x fake_freetype2/bin/freetype-config
+export FAKE_FREETYPE2_DIR="`pwd`/fake_freetype2"
+
+# END Faking freetype2_config
 
 export EXTENSION_DIR=/opt/cpanel/ea-php73/root/usr/lib64/php/modules
 export PEAR_INSTALLDIR=${_datadir}/pear
 export PKG_CONFIG_PATH=/usr/lib/pkgconfig:/usr/share/pkgconfig:/usr/lib/x86_64-linux-gnu/pkgconfig
+
+# NOTE: from other comments, I have to hand add the freetype flags
 export CFLAGS="-mshstk $CFLAGS"
 export LDFLAGS="-L/usr/lib/x86_64-linux-gnu -lxml2 -lsystemd $LDFLAGS"
 
@@ -130,6 +161,7 @@ XSL_CFLAGS="-I/usr/include/libxml2"
 XSL_LIBS="-L/usr/lib/x86_64-linux-gnu -lxml2"
 LIBZIP_CFLAGS="-I/usr/include"
 LIBZIP_LIBS="-L/usr/lib/x86_64-linux-gnu -lzip"
+
 
 # Regenerate configure scripts (patches change config.m4's)
 touch configure.in
@@ -174,7 +206,7 @@ ln -s ../configure
     --with-pic \
     --without-pear \
     --with-bz2=shared \
-    --with-freetype \ \
+    --with-freetype \
     --with-xpm-dir=${_root_prefix} \
     --with-png-dir=${_root_prefix} \
     --without-gdbm \
@@ -205,6 +237,8 @@ ln -s ../configure
     --with-sqlite3=shared \
     --enable-pcntl \
     --with-gd=shared \
+    --enable-gd-native-ttf \
+    --with-freetype-dir=$FAKE_FREETYPE2_DIR \
     --enable-dba=shared \
     --with-unixODBC=shared,/usr \
     --enable-opcache=shared \
@@ -252,6 +286,8 @@ ln -s ../configure
     --with-webp-dir=${_root_prefix}
 if test $? != 0; then
   : configure failed
+  # log contains error messages
+  cat -n config.log
   exit 1
 fi
 
