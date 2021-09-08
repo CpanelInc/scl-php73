@@ -147,7 +147,6 @@ export EXTENSION_DIR=/opt/cpanel/ea-php73/root/usr/lib64/php/modules
 export PEAR_INSTALLDIR=${_datadir}/pear
 export PKG_CONFIG_PATH=/usr/lib/pkgconfig:/usr/share/pkgconfig:/usr/lib/x86_64-linux-gnu/pkgconfig
 
-# NOTE: from other comments, I have to hand add the freetype flags
 export CFLAGS="-mshstk $CFLAGS"
 export LDFLAGS="-L/usr/lib/x86_64-linux-gnu -lxml2 -lsystemd $LDFLAGS"
 
