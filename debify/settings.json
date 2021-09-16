@@ -35,7 +35,8 @@
         "ea-apache24-mod-mpm-prefork",
         "libonig-dev",
         "libsystemd0",
-        "libpspell-dev"
+        "libpspell-dev",
+        "libttfautohint-dev"
     ],
     "remove_from_patches": [
         "0010-Add-AUTOCONF-AUTOHEADER-variables-for-C6.patch"
@@ -50,13 +51,13 @@
         "ea-php73-php-dba": [ "libtokyocabinet9", "ea-php73-php-cli", "ea-php73-php-common" ],
         "ea-php73-php-dbg": [ "libfbclient2", "ea-php73-php-cli", "ea-php73-php-common" ],
         "ea-php73-php-devel": [ "ea-php73-php-cli" ],
-        "ea-php73-php": [ "ea-php73-php-cli", "ea-php73-php-common" ],
+        "ea-php73-php": [ "ea-php73-php-cli", "ea-php73-php-common", "ea-apache24-mod-mpm-prefork" ],
         "ea-php73-php-enchant": [ "libenchant1c2a", "ea-php73-php-cli", "ea-php73-php-common" ],
         "ea-php73-php-exif": [ "ea-php73-php-cli", "ea-php73-php-common" ],
         "ea-php73-php-fileinfo": [ "ea-php73-php-cli", "ea-php73-php-common" ],
         "ea-php73-php-fpm": [ "libfbclient2", "ea-php73-php-cli", "ea-php73-php-common" ],
         "ea-php73-php-ftp": [ "ea-php73-php-cli", "ea-php73-php-common" ],
-        "ea-php73-php-gd": [ "ea-php73-php-cli", "ea-php73-php-common" ],
+        "ea-php73-php-gd": [ "ea-php73-php-cli", "ea-php73-php-common", "libttfautohint1", "libfreetype6" ],
         "ea-php73-php-gettext": [ "ea-php73-php-cli", "ea-php73-php-common" ],
         "ea-php73-php-gmp": [ "ea-php73-php-cli", "ea-php73-php-common" ],
         "ea-php73-php-iconv": [ "ea-php73-php-cli", "ea-php73-php-common" ],
