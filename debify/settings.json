@@ -1,4 +1,8 @@
 {
+    "do_not_build_packages": [
+       "ea-php73-php-interbase",
+       "ea-php73-php-embedded"
+    ],
     "vars" : {
        "pkg_php_version": "%{version}",
         "ea_apr_name": "ea_apr16",
