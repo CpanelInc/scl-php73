@@ -27,7 +27,10 @@
         "scl-utils-build",
         "autotools-latest-autoconf",
         "ea-php73-libc-client-devel",
-        "ea-php73-libc-client"
+        "ea-php73-libc-client",
+        "brotli-devel",
+        "libidn",
+        "libidn-devel"
     ],
     "add_to_build_requires": [
         "pkg-config",
@@ -36,7 +39,11 @@
         "libonig-dev",
         "libsystemd0",
         "libpspell-dev",
-        "libttfautohint-dev"
+        "libttfautohint-dev",
+        "libbrotli-dev",
+        "libbrotli1",
+        "libidn11",
+        "libidn11-dev"
     ],
     "remove_from_patches": [
         "0010-Add-AUTOCONF-AUTOHEADER-variables-for-C6.patch"
@@ -62,7 +69,7 @@
         "ea-php73-php-gmp": [ "ea-php73-php-cli", "ea-php73-php-common" ],
         "ea-php73-php-iconv": [ "ea-php73-php-cli", "ea-php73-php-common" ],
         "ea-php73-php-imap": [ "libc-client2007e", "ea-php73-php-cli", "ea-php73-php-common" ],
-        "ea-php73-php-intl": [ "ea-php73-php-cli", "ea-php73-php-common" ],
+        "ea-php73-php-intl": [ "ea-php73-php-cli", "ea-php73-php-common", "libidn11" ],
         "ea-php73-php-ldap": [ "ea-php73-php-cli", "ea-php73-php-common" ],
         "ea-php73-php-litespeed": [ "libfbclient2", "ea-php73-php-common" ],
         "ea-php73-php-mbstring": [ "ea-php73-php-cli", "ea-php73-php-common" ],
