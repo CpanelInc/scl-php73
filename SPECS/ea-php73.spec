@@ -139,7 +139,7 @@ Summary:  PHP DSO
 Vendor:   cPanel, Inc.
 Name:     %{?scl_prefix}php
 Version:  7.3.32
-%define release_prefix 1
+%define release_prefix 2
 Release:  %{release_prefix}%{?dist}.cpanel
 # All files licensed under PHP version 3.01, except
 # Zend is licensed under Zend
@@ -385,7 +385,6 @@ Provides: %{?scl_prefix}php-core = %{version}, %{?scl_prefix}php-core%{?_isa} = 
 Provides: %{?scl_prefix}php-ctype = %{version}-%{release}, %{?scl_prefix}php-ctype%{?_isa} = %{version}-%{release}
 Provides: %{?scl_prefix}php-date = %{version}-%{release}, %{?scl_prefix}php-date%{?_isa} = %{version}-%{release}
 Provides: %{?scl_prefix}php-filter = %{version}-%{release}, %{?scl_prefix}php-filter%{?_isa} = %{version}-%{release}
-Provides: %{?scl_prefix}php-gmp = %{version}-%{release}, %{?scl_prefix}php-gmp%{?_isa} = %{version}-%{release}
 Provides: %{?scl_prefix}php-hash = %{version}-%{release}, %{?scl_prefix}php-hash%{?_isa} = %{version}-%{release}
 Provides: %{?scl_prefix}php-mhash = %{version}-%{release}, %{?scl_prefix}php-mhash%{?_isa} = %{version}-%{release}
 Provides: %{?scl_prefix}php-json = %{version}-%{release}, %{?scl_prefix}php-json%{?_isa} = %{version}-%{release}
@@ -1954,6 +1953,9 @@ fi
 %endif
 
 %changelog
+* Mon Nov 08 2021 Dan Muey <dan@cpanel.net> - 7.3.32-2
+- ZC-9470: Remove gmp extension from common’s built-in Provides list
+
 * Tue Oct 26 2021 Cory McIntire <cory@cpanel.net> - 7.3.32-1
 - EA-10237: Update scl-php73 from v7.3.31 to v7.3.32
 
