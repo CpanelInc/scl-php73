@@ -139,7 +139,7 @@ Summary:  PHP DSO
 Vendor:   cPanel, Inc.
 Name:     %{?scl_prefix}php
 Version:  7.3.33
-%define release_prefix 1
+%define release_prefix 2
 Release:  %{release_prefix}%{?dist}.cpanel
 # All files licensed under PHP version 3.01, except
 # Zend is licensed under Zend
@@ -1953,6 +1953,9 @@ fi
 %endif
 
 %changelog
+* Tue Nov 23 2021 Julian Brown <julian.brown@cpanel.net> - 7.3.33-2
+- ZC-9245: Correct dependency issue on Ubuntu
+
 * Thu Nov 18 2021 Cory McIntire <cory@cpanel.net> - 7.3.33-1
 - EA-10281: Update scl-php73 from v7.3.32 to v7.3.33
 
