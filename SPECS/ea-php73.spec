@@ -139,7 +139,7 @@ Summary:  PHP DSO
 Vendor:   cPanel, Inc.
 Name:     %{?scl_prefix}php
 Version:  7.3.33
-%define release_prefix 2
+%define release_prefix 3
 Release:  %{release_prefix}%{?dist}.cpanel
 # All files licensed under PHP version 3.01, except
 # Zend is licensed under Zend
@@ -1953,6 +1953,9 @@ fi
 %endif
 
 %changelog
+* Tue Jan 11 2022 Julian Brown <julian.brown@cpanel.net> - 7.3.33-3
+- ZC-9628: Ensure sqlite3 is linked into pdo_sqlite.so
+
 * Tue Nov 23 2021 Julian Brown <julian.brown@cpanel.net> - 7.3.33-2
 - ZC-9245: Correct dependency issue on Ubuntu
 
