@@ -112,7 +112,6 @@ cp /usr/share/pkgconfig/ea-apr16-1.pc config
 cp /usr/share/pkgconfig/ea-apr16-util-1.pc config
 
 export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:`pwd`/config:/usr/lib/x86_64-linux-gnu/pkgconfig"
-echo "PKG_CONFIG_PATH :$PKG_CONFIG_PATH:"
 
 # BEGIN Faking freetype-config
 
@@ -145,7 +144,7 @@ export FAKE_FREETYPE2_DIR="`pwd`/fake_freetype2"
 
 export EXTENSION_DIR=/opt/cpanel/ea-php73/root/usr/lib64/php/modules
 export PEAR_INSTALLDIR=${_datadir}/pear
-export PKG_CONFIG_PATH=/usr/lib/pkgconfig:/usr/share/pkgconfig:/usr/lib/x86_64-linux-gnu/pkgconfig
+export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/lib/pkgconfig:/usr/share/pkgconfig:/usr/lib/x86_64-linux-gnu/pkgconfig"
 
 export CFLAGS="-mshstk $CFLAGS"
 export LDFLAGS="-L/usr/lib/x86_64-linux-gnu -lxml2 -lsystemd $LDFLAGS"
@@ -161,16 +160,13 @@ XSL_LIBS="-L/usr/lib/x86_64-linux-gnu -lxml2"
 LIBZIP_CFLAGS="-I/usr/include"
 LIBZIP_LIBS="-L/usr/lib/x86_64-linux-gnu -lzip"
 
+export LDFLAGS="-lsqlite3 $LDFLAGS"
 
 # Regenerate configure scripts (patches change config.m4's)
 touch configure.in
 ./buildconf --force
 
 mkdir Zend && cp ../Zend/zend_{language,ini}_{parser,scanner}.[ch] Zend
-
-echo "FILESLIST"
-find . -type -f -print
-echo "FILESLIST END"
 
 pushd build
 
@@ -275,7 +271,7 @@ ln -s ../configure
     --enable-soap=shared \
     --enable-intl=shared \
     --with-tidy=shared \
-    --with-enchant=shared \
+    --with-enchant=shared,/usr \
     --with-litespeed \
     --enable-phpdbg \
     --enable-wddx=shared \
