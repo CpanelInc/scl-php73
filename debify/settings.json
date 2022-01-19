@@ -34,7 +34,8 @@
         "ea-php73-libc-client",
         "brotli-devel",
         "libidn",
-        "libidn-devel"
+        "libidn-devel",
+        "libenchant1c2a"
     ],
     "add_to_build_requires": [
         "pkg-config",
@@ -47,7 +48,10 @@
         "libbrotli-dev",
         "libbrotli1",
         "libidn11",
-        "libidn11-dev"
+        "libidn11-dev",
+        "libenchant-dev",
+        "libenchant1c2a",
+        "libsqlite3-dev"
     ],
     "remove_from_patches": [
         "0010-Add-AUTOCONF-AUTOHEADER-variables-for-C6.patch"
@@ -79,7 +83,7 @@
         "ea-php73-php-mbstring": [ "ea-php73-php-cli", "ea-php73-php-common" ],
         "ea-php73-php-odbc": [ "libodbc1", "ea-php73-php-pdo" ],
         "ea-php73-php-opcache": [ "ea-php73-php-cli", "ea-php73-php-common" ],
-        "ea-php73-php-pdo": [ "libpq5", "ea-php73-php-cli", "ea-php73-php-common" ],
+        "ea-php73-php-pdo": [ "libpq5", "libsqlite3-0",  "ea-php73-php-cli", "ea-php73-php-common" ],
         "ea-php73-php-pgsql": [ "libpq5", "ea-php73-php-pdo" ],
         "ea-php73-php-posix": [ "ea-php73-php-cli", "ea-php73-php-common" ],
         "ea-php73-php-process": [ "ea-php73-php-cli", "ea-php73-php-common" ],
