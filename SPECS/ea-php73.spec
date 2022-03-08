@@ -139,7 +139,7 @@ Summary:  PHP DSO
 Vendor:   cPanel, Inc.
 Name:     %{?scl_prefix}php
 Version:  7.3.33
-%define release_prefix 3
+%define release_prefix 4
 Release:  %{release_prefix}%{?dist}.cpanel
 # All files licensed under PHP version 3.01, except
 # Zend is licensed under Zend
@@ -149,7 +149,7 @@ Group:    Development/Languages
 URL:      http://www.php.net/
 
 Source0: http://www.php.net/distributions/php-%{version}.tar.bz2
-Source1: https://www.litespeedtech.com/packages/lsapi/php-litespeed-7.9.tgz
+Source1: https://www.litespeedtech.com/packages/lsapi/php-litespeed-8.0.1.tgz
 Source2: php.ini
 Source3: macros.php
 Source4: php-fpm.conf
@@ -1953,6 +1953,9 @@ fi
 %endif
 
 %changelog
+* Wed Mar 02 2022 Travis Holloway <t.holloway@cpanel.net> - 7.3.33-4
+- EA-10532: Update litespeed to 8.0.1
+
 * Tue Jan 11 2022 Julian Brown <julian.brown@cpanel.net> - 7.3.33-3
 - ZC-9628: Ensure sqlite3 is linked into pdo_sqlite.so
 
