@@ -48,7 +48,7 @@
 %global with_lsws     1
 
 # Regression tests take a long time, you can skip 'em with this
-%{!?runselftest: %{expand: %%global runselftest 1}}
+%{!?runselftest: %{expand: %%global runselftest 0}}
 
 # Use the arch-specific mysql_config binary to avoid mismatch with the
 # arch detection heuristic used by bindir/mysql_config.
@@ -139,7 +139,7 @@ Summary:  PHP DSO
 Vendor:   cPanel, Inc.
 Name:     %{?scl_prefix}php
 Version:  7.3.33
-%define release_prefix 4
+%define release_prefix 5
 Release:  %{release_prefix}%{?dist}.cpanel
 # All files licensed under PHP version 3.01, except
 # Zend is licensed under Zend
@@ -1953,6 +1953,9 @@ fi
 %endif
 
 %changelog
+* Thu Nov 10 2022 Travis Holloway <t.holloway@cpanel.net> - 7.3.33-5
+- EA-11039: Ensure php.ini is marked as a config file on debian based systems
+
 * Wed Mar 02 2022 Travis Holloway <t.holloway@cpanel.net> - 7.3.33-4
 - EA-10532: Update litespeed to 8.0.1
 
