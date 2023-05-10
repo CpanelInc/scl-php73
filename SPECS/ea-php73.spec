@@ -1,5 +1,3 @@
-%global debug_package %{nil}
-
 # Defining the package namespace
 # NOTE: pkg variable is a hack to fix invalid macro inside of macros.php
 %global ns_name ea
@@ -141,7 +139,7 @@ Summary:  PHP DSO
 Vendor:   cPanel, Inc.
 Name:     %{?scl_prefix}php
 Version:  7.3.33
-%define release_prefix 6
+%define release_prefix 7
 Release:  %{release_prefix}%{?dist}.cpanel
 # All files licensed under PHP version 3.01, except
 # Zend is licensed under Zend
@@ -1955,6 +1953,9 @@ fi
 %endif
 
 %changelog
+* Wed May 10 2023 Brian Mendoza <brian.mendoza@cpanel.net> - 7.3.33-7
+- ZC-10936: Clean up Makefile and remove debug-package-nil
+
 * Tue Apr 04 2023 Julian Brown <julian.brown@cpanel.net> - 7.3.33-6
 - ZC-10873: Do not build on Ubuntu 22
 
