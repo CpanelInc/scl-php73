@@ -142,7 +142,7 @@ Summary:  PHP DSO
 Vendor:   cPanel, Inc.
 Name:     %{?scl_prefix}php
 Version:  7.3.33
-%define release_prefix 8
+%define release_prefix 9
 Release:  %{release_prefix}%{?dist}.cpanel
 # All files licensed under PHP version 3.01, except
 # Zend is licensed under Zend
@@ -189,6 +189,7 @@ Patch400: 0011-0020-PLESK-sig-block-reexec.patch
 Patch401: 0012-0021-PLESK-avoid-child-ignorance.patch
 Patch402: 0013-0022-PLESK-missed-kill.patch
 Patch403: 0014-Revert-new-.user.ini-search-behavior.patch
+Patch404: 0015-Update-libxml-include-file-references.patch
 
 BuildRequires: bzip2-devel, %{db_devel}
 
@@ -1060,6 +1061,7 @@ inside them.
 %patch401 -p1 -b .avoidchildignorance
 %patch402 -p1 -b .missedkill
 %patch403 -p1 -b .userini
+%patch404 -p1 -b .libxml
 
 # 7.3 does not need this for tidy even thought the instructions say to do it, weird ...
 # sed -i 's/buffio.h/tidybuffio.h/' ext/tidy/*.c
@@ -1956,6 +1958,9 @@ fi
 %endif
 
 %changelog
+* Tue Nov 21 2023 Tim Mullin <tim@cpanel.net> - 7.3.33-9
+- EA-11821: Patch to build with the latest ea-libxml2
+
 * Wed May 17 2023 Brian Mendoza <brian.mendoza@cpanel.net> - 7.3.33-8
 - ZC-10950: Add debug_package nil back w/ second directive (3rd item will be ZC-10951)
 

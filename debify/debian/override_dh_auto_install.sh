@@ -177,14 +177,14 @@ gzip debian/tmp/opt/cpanel/ea-php73/root/usr/share/man/man8/php-fpm.8
 
 cp -f ./debian/tmp/etc/php-fpm.conf ./debian/tmp/opt/cpanel/ea-php73/root/etc/php-fpm.conf
 
-mkdir -p ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-cli-${pkg_php_version}
-mkdir -p ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-dbg-${pkg_php_version}
-mkdir -p ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-common-${pkg_php_version}
-mkdir -p ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-dbg-${pkg_php_version}
-mkdir -p ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-fpm-${pkg_php_version}
-mkdir -p ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/licenses/ea-php73-php-fpm-${pkg_php_version}
-mkdir -p ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/licenses/ea-php73-php-bcmath-${pkg_php_version}
-mkdir -p ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-mbstring-${pkg_php_version}
+mkdir -p ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-cli
+mkdir -p ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-dbg
+mkdir -p ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-common
+mkdir -p ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-dbg
+mkdir -p ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-fpm
+mkdir -p ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/licenses/ea-php73-php-fpm
+mkdir -p ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/licenses/ea-php73-php-bcmath
+mkdir -p ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-mbstring
 mkdir -p ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/include/php/ext/pcre/pcre2lib
 mkdir -p ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/etc/php-fpm.d
 mkdir -p ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/etc/php.d
@@ -198,46 +198,46 @@ cp build/libs/libphp7.so ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/lib64/
 cp build/libs/libphp7.so ${DEB_INSTALL_ROOT}/usr/lib64/apache2/modules
 
 cp -R ${DEB_INSTALL_ROOT}/etc/php-fpm.d ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/etc/php-fpm.d
-cp -f ./sapi/phpdbg/CREDITS ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-dbg-${pkg_php_version}
-cp -f ./sapi/phpdbg/README.md ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-dbg-${pkg_php_version}
+cp -f ./sapi/phpdbg/CREDITS ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-dbg
+cp -f ./sapi/phpdbg/README.md ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-dbg
 cp -f ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/etc/php-fpm.d/php-fpm.d/www.conf.example ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/etc/php-fpm.d
 cp -R ${DEB_INSTALL_ROOT}/etc/sysconfig/php-fpm ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/etc/sysconfig
-cp -R ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/etc/php-fpm.conf.default ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-fpm-${pkg_php_version}
-cp -R ./fpm_LICENSE ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-fpm-${pkg_php_version}
+cp -R ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/etc/php-fpm.conf.default ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-fpm
+cp -R ./fpm_LICENSE ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-fpm
 cp ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/etc/php.d/* ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/etc/php.d
 cp ${DEB_INSTALL_ROOT}/etc/php.ini ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/etc
-cp ./CODING_STANDARDS.md ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-common-${pkg_php_version}
-cp ./EXTENSIONS ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-common-${pkg_php_version}
-cp ./LICENSE ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-common-${pkg_php_version}
-cp ./NEWS ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-common-${pkg_php_version}
-cp ./README.REDIST.BINS ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-common-${pkg_php_version}
-cp ./README.md ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-common-${pkg_php_version}
-cp ./TSRM_LICENSE ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-common-${pkg_php_version}
-cp ./Zend/ZEND_LICENSE ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-common-${pkg_php_version}
-cp ./libmagic_LICENSE ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-common-${pkg_php_version}
-cp ./php.ini-development ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-common-${pkg_php_version}
-cp ./php.ini-production ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-common-${pkg_php_version}
-cp ./fpm_LICENSE ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/licenses/ea-php73-php-fpm-${pkg_php_version}
-cp ./libmbfl_LICENSE ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-mbstring-${pkg_php_version}
+cp ./CODING_STANDARDS.md ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-common
+cp ./EXTENSIONS ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-common
+cp ./LICENSE ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-common
+cp ./NEWS ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-common
+cp ./README.REDIST.BINS ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-common
+cp ./README.md ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-common
+cp ./TSRM_LICENSE ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-common
+cp ./Zend/ZEND_LICENSE ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-common
+cp ./libmagic_LICENSE ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-common
+cp ./php.ini-development ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-common
+cp ./php.ini-production ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-common
+cp ./fpm_LICENSE ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/licenses/ea-php73-php-fpm
+cp ./libmbfl_LICENSE ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-mbstring
 
-cp ./sapi/cli/README ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-cli-${pkg_php_version}
+cp ./sapi/cli/README ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-cli
 
-/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-cli-${pkg_php_version}
+/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-cli
 /opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-cli-7.3.28/README
 
-cp ./sapi/cgi/README.FastCGI ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-cli-${pkg_php_version}
-cp ./README.* ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-common-${pkg_php_version}
-cp ./CODING_STANDARDS ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-common-${pkg_php_version}
-cp ./CREDITS ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-common-${pkg_php_version}
+cp ./sapi/cgi/README.FastCGI ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-cli
+cp ./README.* ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-common
+cp ./CODING_STANDARDS ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-common
+cp ./CREDITS ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-common
 
 cp ./ext/gd/gd_compat.h ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/include/php/ext/gd
 cp ./ext/gd/php_gd.h ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/include/php/ext/gd
 cp ./ext/gd/libgd/*.h ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/include/php/ext/gd/libgd
 cp ./ext/pcre/pcre2lib/*.h ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/include/php/ext/pcre/pcre2lib
 
-cp ./oniguruma_COPYING ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-mbstring-${pkg_php_version}
-cp ./ucgendat_LICENSE ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-mbstring-${pkg_php_version}
-cp ./libbcmath_COPYING ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/licenses/ea-php73-php-bcmath-${pkg_php_version}
+cp ./oniguruma_COPYING ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-mbstring
+cp ./ucgendat_LICENSE ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/doc/ea-php73-php-mbstring
+cp ./libbcmath_COPYING ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/share/licenses/ea-php73-php-bcmath
 cp ./ext/pcre/pcre2lib/*.h ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php73/root/usr/include/php/ext/pcre/pcre2lib
 
 mkdir -p $DEB_INSTALL_ROOT/usr/share/apache2/icons
