@@ -142,7 +142,7 @@ Summary:  PHP DSO
 Vendor:   cPanel, Inc.
 Name:     %{?scl_prefix}php
 Version:  7.3.33
-%define release_prefix 9
+%define release_prefix 10
 Release:  %{release_prefix}%{?dist}.cpanel
 # All files licensed under PHP version 3.01, except
 # Zend is licensed under Zend
@@ -1958,6 +1958,9 @@ fi
 %endif
 
 %changelog
+* Mon Dec 18 2023 Travis Holloway <t.holloway@cpanel.net> - 7.3.33-10
+- EA-10753: Have snmp module require 'snmp-mibs-downloader' for deb
+
 * Tue Nov 21 2023 Tim Mullin <tim@cpanel.net> - 7.3.33-9
 - EA-11821: Patch to build with the latest ea-libxml2
 

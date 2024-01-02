@@ -89,7 +89,7 @@
         "ea-php73-php-process": [ "ea-php73-php-cli", "ea-php73-php-common" ],
         "ea-php73-php-pspell": [ "libaspell15", "ea-php73-php-cli", "ea-php73-php-common" ],
         "ea-php73-php-recode": [ "librecode0", "ea-php73-php-cli", "ea-php73-php-common" ],
-        "ea-php73-php-snmp": [ "ea-php73-php-cli", "ea-php73-php-common" ],
+        "ea-php73-php-snmp": [ "ea-php73-php-cli", "ea-php73-php-common", "snmp-mibs-downloader" ],
         "ea-php73-php-soap": [ "ea-php73-php-cli", "ea-php73-php-common" ],
         "ea-php73-php-sockets": [ "ea-php73-php-cli", "ea-php73-php-common" ],
         "ea-php73-php-tidy": [ "ea-php73-php-cli", "ea-php73-php-common" ],
