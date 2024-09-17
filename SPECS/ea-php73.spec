@@ -142,7 +142,7 @@ Summary:  PHP DSO
 Vendor:   cPanel, Inc.
 Name:     %{?scl_prefix}php
 Version:  7.3.33
-%define release_prefix 11
+%define release_prefix 12
 Release:  %{release_prefix}%{?dist}.cpanel
 # All files licensed under PHP version 3.01, except
 # Zend is licensed under Zend
@@ -190,6 +190,8 @@ Patch401: 0012-0021-PLESK-avoid-child-ignorance.patch
 Patch402: 0013-0022-PLESK-missed-kill.patch
 Patch403: 0014-Revert-new-.user.ini-search-behavior.patch
 Patch404: 0015-Update-libxml-include-file-references.patch
+
+Patch015: 0015-libxml2-2.13-makes-changes-to-how-the-parsing-state-.patch
 
 BuildRequires: bzip2-devel, %{db_devel}
 
@@ -1076,6 +1078,8 @@ inside them.
 #fi
 #%endif
 
+%patch015 -p1 -b .libxml2
+
 # Prevent %%doc confusion over LICENSE files
 cp Zend/LICENSE Zend/ZEND_LICENSE
 cp TSRM/LICENSE TSRM_LICENSE
@@ -1958,6 +1962,9 @@ fi
 %endif
 
 %changelog
+* Fri Sep 13 2024 Julian Brown <julian.brown@cpanel.net> - 7.3.33-12
+- ZC-12167: Correct libxml2 problem
+
 * Wed Sep 11 2024 Dan Muey <dan@cpanel.net> - 7.3.33-11
 - ZC-12166: remove _isa since it is incorrect
 
